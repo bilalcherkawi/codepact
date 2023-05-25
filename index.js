@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 // Allow all CORS request
 app.use(cors({ origin: "*" }));
 
-const auth = require("./routes/auth");
-
+const auth = require("./Routes/auth");
+const users = require("./Routes/users");
 /**
  * Get. to get information. login, checkUser.
  * POST. INSERT
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth/", auth);
-
+app.use("/api/users/", users);
 app.listen(port, () => {
   console.log(`my app is running on the port ${port}`);
 });
